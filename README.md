@@ -267,3 +267,4 @@ cd C:\NLP\ecommerce-smart-review\backend
 uvicorn main:app --reload
 cd C:\NLP\ecommerce-smart-review\frontend
 npm run dev
+
