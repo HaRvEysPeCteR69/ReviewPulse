@@ -18,7 +18,6 @@ out/
 .env*.local
 
 # Model artifacts (regenerate with training scripts)
-backend/models/*.pkl
 
 # Data & logs
 backend/data/raw/*
@@ -38,3 +37,6 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# TypeScript generated files
+frontend/tsconfig.tsbuildinfo

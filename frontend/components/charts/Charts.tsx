@@ -40,16 +40,61 @@ export function SentimentPie({
     Negative: "#FB7185",
     Mixed: "#FBBF24",
   };
+
+  const renderLabel = (props: any) => {
+    const { cx, cy, midAngle, innerRadius, outerRadius, value } = props;
+    if (!value || !cx || !cy) return null;
+
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.55;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="#0B1020"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fontSize={13}
+        fontWeight={700}
+      >
+        {value}
+      </text>
+    );
+  };
+
   return (
     <ResponsiveContainer width="100%" height={240}>
       <PieChart>
-        <Pie data={data} dataKey="value" nameKey="name" innerRadius={55} outerRadius={85} paddingAngle={3} strokeWidth={0}>
+        <Pie
+          data={data}
+          dataKey="value"
+          nameKey="name"
+          innerRadius={48}
+          outerRadius={82}
+          paddingAngle={3}
+          strokeWidth={0}
+          label={renderLabel}
+          labelLine={false}
+        >
           {data.map((d) => (
             <Cell key={d.name} fill={COLORS[d.name] ?? "#64748B"} />
           ))}
         </Pie>
-        <Tooltip contentStyle={TOOLTIP_STYLE} />
-        <Legend iconType="circle" wrapperStyle={{ fontSize: 12, color: "#94A3B8" }} />
+        <Tooltip
+          contentStyle={TOOLTIP_STYLE}
+          itemStyle={{ color: "#E2E8F0" }}
+          formatter={(value: any, name: any) => [
+            `${value} reviews`,
+            name,
+          ]}
+        />
+        <Legend
+          iconType="circle"
+          wrapperStyle={{ fontSize: 12, color: "#94A3B8" }}
+        />
       </PieChart>
     </ResponsiveContainer>
   );
