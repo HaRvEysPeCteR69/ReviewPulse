@@ -40,7 +40,7 @@ validation    relevance          confidence + explainability
 
 Key architectural rule: **the browser handles presentation and interaction while FastAPI handles the expensive NLP/ML work.** Routes stay thin (`Route → Service → NLP/ML Engine → Response Schema`), models load once at startup into a `ModelManager`, and large analyses run as background jobs with progress polling.
 
-## Technology Stack
+## Technology-Stack
 
 | Layer | Technology |
 |---|---|
