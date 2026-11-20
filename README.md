@@ -68,7 +68,7 @@ Key architectural rule: **the browser handles presentation and interaction while
 - **Async CSV processing** — upload → job → progress stages ("Detecting reviews…", "Running sentiment model…", …) via `GET /api/analysis/{id}/status`. No Celery/Redis needed.
 - **Premium UI** — dark glassmorphism, subtle glow, animated borders, lazy-loaded procedural 3D hero (no external assets) and a meaningful rotatable 3D aspect chart (X: aspect, Y: positive share, Z: mentions).
 
-## Folder Structure
+## Folder-Structure
 
 ```
 ecommerce-smart-review/
